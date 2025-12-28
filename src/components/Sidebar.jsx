@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HomeIcon, SearchIcon, LibraryIcon, PlusIcon, LikeIcon } from './Icons';
+import logo from '../assets/icon.jpg';
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -10,6 +11,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar__top">
         <Link to="/" className="sidebar__logo">
+          <img src={logo} alt="10xSpotify Logo" className="sidebar__logo-img" />
           <h2>10xSpotify2.O</h2>
         </Link>
         

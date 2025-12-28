@@ -17,8 +17,17 @@
 .sidebar__logo {
   text-decoration: none;
   padding: 0 24px;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 18px;
+}
+
+.sidebar__logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .sidebar__logo h2 {
