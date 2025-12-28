@@ -16,6 +16,7 @@ export const SpotifyProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [player, setPlayer] = useState(null);
   const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -51,6 +52,9 @@ export const SpotifyProvider = ({ children }) => {
         localStorage.removeItem('spotify_user');
       }
     }
+    
+    // Mark loading as complete after checking localStorage
+    setIsLoading(false);
   }, []);
 
   // Initialize SDK when token is available
@@ -103,7 +107,7 @@ export const SpotifyProvider = ({ children }) => {
       alert('Spotify Client ID is not configured. Please set VITE_SPOTIFY_CLIENT_ID in your environment variables.');
       return;
     }
-    
+     
     const scopes = [
       'user-read-private',
       'user-read-email',
@@ -160,6 +164,7 @@ export const SpotifyProvider = ({ children }) => {
     setUser,
     token,
     isAuthenticated,
+    isLoading,
     login,
     logout,
     handleToken,

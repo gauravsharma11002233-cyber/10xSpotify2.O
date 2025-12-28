@@ -14,7 +14,7 @@ import Artist from './components/Artist'
 import './App.css'
 
 function AppContent() {
-  const { isAuthenticated, handleToken } = useSpotify();
+  const { isAuthenticated, isLoading, handleToken } = useSpotify();
 
   useEffect(() => {
     // Check for token in URL hash (OAuth callback)
@@ -31,6 +31,31 @@ function AppContent() {
       }
     }
   }, [handleToken]);
+
+  // Show loading state while checking authentication
+  if (isLoading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '100vh',
+        backgroundColor: '#121212',
+        color: '#fff',
+        fontFamily: 'system-ui, -apple-system, sans-serif'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <img 
+            src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" 
+            alt="Spotify Logo" 
+            style={{ width: '200px', marginBottom: '20px' }}
+          />
+          <h1 style={{ margin: '10px 0', fontSize: '2rem' }}>10xSpotify2.O</h1>
+          <p style={{ opacity: 0.7 }}>Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!isAuthenticated) {
     return <Login />;
