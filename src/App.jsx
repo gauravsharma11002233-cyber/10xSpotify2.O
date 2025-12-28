@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { SpotifyProvider } from './context/SpotifyContext'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { SpotifyProvider, useSpotify } from './context/SpotifyContext'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import MainContent from './components/MainContent'
@@ -13,74 +13,104 @@ import Browse from './components/Browse'
 import Artist from './components/Artist'
 import './App.css'
 
+function AppContent() {
+  const { isAuthenticated, handleToken } = useSpotify();
+
+  useEffect(() => {
+    // Check for token in URL hash (OAuth callback)
+    const hash = window.location.hash;
+    if (hash) {
+      const params = new URLSearchParams(hash.substring(1));
+      const accessToken = params.get('access_token');
+      const expiresIn = params.get('expires_in');
+      
+      if (accessToken) {
+        handleToken(accessToken, parseInt(expiresIn));
+        // Clear hash from URL
+        window.history.replaceState(null, null, ' ');
+      }
+    }
+  }, []);
+
+  if (!isAuthenticated) {
+    return <Login />;
+  }
+
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Header />
+            <div className="main-container">
+              <Sidebar />
+              <MainContent />
+            </div>
+            <Player />
+          </>
+        } />
+        <Route path="/search" element={
+          <>
+            <Header />
+            <div className="main-container">
+              <Sidebar />
+              <Search />
+            </div>
+            <Player />
+          </>
+        } />
+        <Route path="/library" element={
+          <>
+            <Header />
+            <div className="main-container">
+              <Sidebar />
+              <Library />
+            </div>
+            <Player />
+          </>
+        } />
+        <Route path="/playlist/:id" element={
+          <>
+            <Header />
+            <div className="main-container">
+              <Sidebar />
+              <Playlist />
+            </div>
+            <Player />
+          </>
+        } />
+        <Route path="/browse" element={
+          <>
+            <Header />
+            <div className="main-container">
+              <Sidebar />
+              <Browse />
+            </div>
+            <Player />
+          </>
+        } />
+        <Route path="/artist/:id" element={
+          <>
+            <Header />
+            <div className="main-container">
+              <Sidebar />
+              <Artist />
+            </div>
+            <Player />
+          </>
+        } />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
+  );
+}
+
 function App() {
   return (
     <SpotifyProvider>
       <Router>
         <div className="app">
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={
-              <>
-                <Header />
-                <div className="main-container">
-                  <Sidebar />
-                  <MainContent />
-                </div>
-                <Player />
-              </>
-            } />
-            <Route path="/search" element={
-              <>
-                <Header />
-                <div className="main-container">
-                  <Sidebar />
-                  <Search />
-                </div>
-                <Player />
-              </>
-            } />
-            <Route path="/library" element={
-              <>
-                <Header />
-                <div className="main-container">
-                  <Sidebar />
-                  <Library />
-                </div>
-                <Player />
-              </>
-            } />
-            <Route path="/playlist/:id" element={
-              <>
-                <Header />
-                <div className="main-container">
-                  <Sidebar />
-                  <Playlist />
-                </div>
-                <Player />
-              </>
-            } />
-            <Route path="/browse" element={
-              <>
-                <Header />
-                <div className="main-container">
-                  <Sidebar />
-                  <Browse />
-                </div>
-                <Player />
-              </>
-            } />
-            <Route path="/artist/:id" element={
-              <>
-                <Header />
-                <div className="main-container">
-                  <Sidebar />
-                  <Artist />
-                </div>
-                <Player />
-              </>
-            } />
-          </Routes>
+          <AppContent />
         </div>
       </Router>
     </SpotifyProvider>

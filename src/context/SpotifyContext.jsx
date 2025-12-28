@@ -45,8 +45,17 @@ export const SpotifyProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       try {
-        const newSdk = SpotifyApi.withAccessToken(process.env.REACT_APP_SPOTIFY_CLIENT_ID, token);
-        setSdk(newSdk);
+        const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID || process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+        const spotifyApi = SpotifyApi.withAccessToken(clientId, { access_token: token });
+        setSdk(spotifyApi);
+        
+        // Fetch user data
+        spotifyApi.currentUser.profile().then((userData) => {
+          setUser(userData);
+          localStorage.setItem('spotify_user', JSON.stringify(userData));
+        }).catch((error) => {
+          console.error('Error fetching user data:', error);
+        });
       } catch (error) {
         console.error('Error initializing Spotify SDK:', error);
       }
@@ -55,8 +64,8 @@ export const SpotifyProvider = ({ children }) => {
 
   const login = () => {
     // Redirect to Spotify authorization
-    const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-    const redirectUri = process.env.REACT_APP_REDIRECT_URI || window.location.origin;
+    const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID || process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+    const redirectUri = import.meta.env.VITE_REDIRECT_URI || process.env.REACT_APP_REDIRECT_URI || window.location.origin;
     const scopes = [
       'user-read-private',
       'user-read-email',
@@ -70,7 +79,8 @@ export const SpotifyProvider = ({ children }) => {
       'playlist-read-private',
       'playlist-read-collaborative',
       'playlist-modify-public',
-      'playlist-modify-private'
+      'playlist-modify-private',
+      'streaming'
     ];
 
     const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scopes.join('%20')}&response_type=token&show_dialog=true`;
