@@ -1,0 +1,231 @@
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background-color: #181818;
+  border-top: 1px solid #282828;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 100;
+}
+
+.player__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.player__album {
+  height: 56px;
+  width: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.player__song-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.player__song-info h4 {
+  color: white;
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player__song-info h4:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.player__song-info p {
+  color: #b3b3b3;
+  font-size: 11px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.player__song-info p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: white;
+}
+
+.player__like-button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.player__like-button:hover {
+  color: white;
+}
+
+.player__center {
+  max-width: 722px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.player__control-button {
+  background-color: transparent;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.player__control-button:hover {
+  color: white;
+}
+
+.player__control-button i {
+  font-size: 16px;
+}
+
+.player__control-button.large {
+  background-color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+
+.player__control-button.large:hover {
+  transform: scale(1.06);
+}
+
+.player__control-button.large i {
+  color: black;
+  font-size: 16px;
+}
+
+.player__progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.player__time {
+  color: #b3b3b3;
+  font-size: 11px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.player__progress-bar {
+  flex: 1;
+  height: 4px;
+  background-color: #4d4d4d;
+  border-radius: 2px;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.player__progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.player__progress-bar:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.player__progress-bar::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(to right, #b3b3b3 0%, #b3b3b3 50%, #4d4d4d 50%, #4d4d4d 100%);
+  border-radius: 2px;
+}
+
+.player__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.player__volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 125px;
+  width: 100%;
+}
+
+.player__volume i {
+  color: #b3b3b3;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.player__volume i:hover {
+  color: white;
+}
+
+.player__volume-slider {
+  flex: 1;
+  height: 4px;
+  background-color: #4d4d4d;
+  border-radius: 2px;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.player__volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.player__volume-slider:hover::-webkit-slider-thumb {
+  opacity: 1;
+}
+
+.player__volume-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(to right, #b3b3b3 0%, #b3b3b3 50%, #4d4d4d 50%, #4d4d4d 100%);
+  border-radius: 2px;
+}

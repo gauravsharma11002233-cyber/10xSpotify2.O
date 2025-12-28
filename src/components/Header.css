@@ -1,0 +1,92 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header__left {
+  display: flex;
+  gap: 16px;
+}
+
+.header__button {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.header__button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.header__button i {
+  font-size: 20px;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 23px;
+  padding: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.user-info:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.user-name {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 12px;
+}
+
+.user-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: #b3b3b3;
+  border: 1px solid #727272;
+  border-radius: 500px;
+  padding: 8px 32px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.logout-button:hover {
+  transform: scale(1.04);
+  border-color: white;
+  color: white;
+}

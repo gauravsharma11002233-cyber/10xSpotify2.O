@@ -1,0 +1,189 @@
+.main-content {
+  flex: 1;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 140px);
+  background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%);
+}
+
+.greeting {
+  padding: 24px 32px 16px;
+}
+
+.greeting h1 {
+  color: white;
+  font-size: 32px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.section {
+  padding: 0 32px;
+  margin-bottom: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section h2 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.show-all {
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.show-all:hover {
+  color: white;
+}
+
+.quick-picks {
+  margin-bottom: 24px;
+}
+
+.quick-picks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.quick-pick-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: 80px;
+  overflow: hidden;
+}
+
+.quick-pick-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.quick-pick-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.quick-pick-card span {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cards-horizontal {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.card {
+  background-color: #181818;
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.card:hover {
+  background-color: #282828;
+}
+
+.card-image-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.card-play-button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #1db954;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover .card-play-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-play-button:hover {
+  transform: scale(1.05);
+  background-color: #1ed760;
+}
+
+.card-play-button i {
+  color: black;
+  font-size: 24px;
+}
+
+.card-info {
+  margin-top: 8px;
+}
+
+.card-info h3 {
+  color: white;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-info p {
+  color: #b3b3b3;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
