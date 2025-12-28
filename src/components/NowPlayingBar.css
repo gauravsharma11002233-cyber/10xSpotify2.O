@@ -1,0 +1,49 @@
+.now-playing-bar {
+  padding: 16px;
+  background-color: #181818;
+  border-bottom: 1px solid #282828;
+}
+
+.now-playing-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.now-playing-image {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.now-playing-info {
+  flex: 1;
+}
+
+.now-playing-info h4 {
+  color: white;
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.now-playing-info p {
+  color: #b3b3b3;
+  margin: 0;
+  font-size: 12px;
+}
+
+.now-playing-like {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.now-playing-like:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}

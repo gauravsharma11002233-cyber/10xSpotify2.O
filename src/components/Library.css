@@ -1,0 +1,95 @@
+.library {
+  padding: 24px 32px;
+  overflow-y: auto;
+  height: calc(100vh - 140px);
+  background: linear-gradient(180deg, #2d46b9 0%, #1e3264 100%);
+}
+
+.library__header h1 {
+  color: white;
+  font-size: 48px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.library__tabs {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #282828;
+  padding-bottom: 8px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+
+.tab.active {
+  color: white;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #1db954;
+  border-radius: 3px;
+}
+
+.library__content {
+  margin-top: 16px;
+}
+
+.library-section {
+  margin-top: 16px;
+}
+
+.library-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.library-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.library-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.library-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.library-item-info h3 {
+  color: white;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.library-item-info p {
+  color: #b3b3b3;
+  margin: 0;
+  font-size: 12px;
+}

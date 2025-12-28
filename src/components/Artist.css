@@ -1,0 +1,274 @@
+.artist {
+  overflow-y: auto;
+  height: calc(100vh - 140px);
+  background: #121212;
+}
+
+.artist__header {
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px 32px;
+  position: relative;
+}
+
+.artist__header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 0, rgba(0,0,0,.5) 100%);
+}
+
+.artist__header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.artist__badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.artist__badge svg {
+  width: 28px;
+  height: 28px;
+  color: #3d91f4;
+}
+
+.artist__badge span {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.artist__header h1 {
+  font-size: 96px;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 24px 0;
+  line-height: 1;
+}
+
+.artist__stats {
+  color: white;
+  font-size: 16px;
+  margin: 0;
+}
+
+.artist__controls {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 32px;
+  background: linear-gradient(rgba(0,0,0,.6) 0, #121212 100%);
+}
+
+.artist__play-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #1db954;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.artist__play-button:hover {
+  transform: scale(1.06);
+  background-color: #1ed760;
+}
+
+.artist__play-button svg {
+  color: black;
+}
+
+.artist__follow-button {
+  border: 1px solid #727272;
+  border-radius: 4px;
+  padding: 8px 32px;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.artist__follow-button:hover {
+  border-color: white;
+  transform: scale(1.04);
+}
+
+.artist__follow-button.following {
+  border-color: #1db954;
+  color: #1db954;
+}
+
+.artist__more-button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.artist__more-button:hover {
+  color: white;
+}
+
+.artist__section {
+  padding: 0 32px 48px;
+}
+
+.artist__section h2 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.artist__top-tracks {
+  margin-bottom: 16px;
+}
+
+.top-track {
+  display: grid;
+  grid-template-columns: 48px 40px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.top-track:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-number {
+  color: #b3b3b3;
+  text-align: center;
+}
+
+.top-track img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.track-info {
+  min-width: 0;
+}
+
+.track-info h4 {
+  color: white;
+  font-size: 16px;
+  margin: 0 0 4px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track-info p {
+  color: #b3b3b3;
+  font-size: 14px;
+  margin: 0;
+}
+
+.track-duration {
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.see-more-button,
+.see-discography-button {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.see-more-button:hover,
+.see-discography-button:hover {
+  color: white;
+}
+
+.artist__albums,
+.artist__related {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.artist__album-card,
+.related-artist-card {
+  background-color: #181818;
+  border-radius: 8px;
+  padding: 16px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.artist__album-card:hover,
+.related-artist-card:hover {
+  background-color: #282828;
+}
+
+.album-image,
+.related-artist-image {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.album-image img,
+.related-artist-image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.related-artist-image img {
+  border-radius: 50%;
+}
+
+.artist__album-card h3,
+.related-artist-card h3 {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.artist__album-card p,
+.related-artist-card p {
+  color: #b3b3b3;
+  font-size: 14px;
+  margin: 0;
+}
+
+.artist__loading {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding: 50px 0;
+}

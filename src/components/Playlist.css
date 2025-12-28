@@ -1,0 +1,148 @@
+.playlist {
+  padding: 24px 32px;
+  overflow-y: auto;
+  height: calc(100vh - 140px);
+  background: linear-gradient(180deg, #2d46b9 0%, #1e3264 100%);
+}
+
+.playlist__header {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.playlist__image {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.playlist__info {
+  flex: 1;
+  padding-bottom: 16px;
+}
+
+.playlist__info h1 {
+  color: white;
+  font-size: 64px;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.playlist__info p {
+  color: #b3b3b3;
+  font-size: 16px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.playlist__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.playlist__play-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #1db954;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.playlist__play-button:hover {
+  transform: scale(1.05);
+  background-color: #1ed760;
+}
+
+.playlist__play-button i {
+  color: white;
+  font-size: 24px;
+}
+
+.playlist__tracks {
+  margin-top: 32px;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.track-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-number {
+  width: 24px;
+  color: #b3b3b3;
+  font-size: 14px;
+  text-align: center;
+}
+
+.track-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-info h4 {
+  color: white;
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.track-info p {
+  color: #b3b3b3;
+  margin: 0;
+  font-size: 12px;
+}
+
+.track-album {
+  width: 200px;
+  color: #b3b3b3;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-duration {
+  width: 60px;
+  color: #b3b3b3;
+  font-size: 12px;
+  text-align: right;
+}
+
+.playlist__loading {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding: 50px 0;
+}
